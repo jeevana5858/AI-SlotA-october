@@ -1,0 +1,24 @@
+from collections import deque
+start = (1, 2, 3, 4, 0, 6, 7, 5, 8)
+goal = (1, 2, 3, 4, 5, 6, 7, 8, 0)
+q = deque([(start, [])])
+visited = {start}
+while q:
+    state, path = q.popleft()
+    if state == goal:
+        print("Solution:")
+        for s in path + [state]:
+            print(s[:3])
+            print(s[3:6])
+            print(s[6:])
+            print()
+        break
+    i = state.index(0)
+    for j in [i-3, i+3, i-1, i+1]:
+        if 0 <= j < 9 and not (abs(i-j) == 1 and i//3 != j//3):
+            new = list(state)
+            new[i], new[j] = new[j], new[i]
+            new = tuple(new)
+            if new not in visited:
+                visited.add(new)
+                q.append((new, path + [state]))

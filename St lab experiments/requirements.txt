@@ -1,0 +1,11 @@
+flask>=3.0.0
+flask-cors>=4.0.0
+pillow>=10.0.0
+numpy>=1.26.0
+openpyxl>=3.1.0
+reportlab>=4.0.0
+pyjwt>=2.8.0
+werkzeug>=3.0.0
+# Optional server-side TensorFlow inference (browser runs TensorFlow.js MobileNetV2 automatically):
+# tensorflow>=2.16.0
+
